@@ -1,0 +1,23 @@
+// Весь текст по центру
+.App {
+  text-align: center;
+}
+// Отменяем стандартные для браузера отсупы заголовков h
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+// Стили для header
+.app-header {
+  background-color: #6842fd;
+  height: 50px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

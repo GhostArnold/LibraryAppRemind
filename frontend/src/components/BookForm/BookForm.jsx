@@ -1,17 +1,29 @@
 import { useState } from 'react';
+// Для отправки действий
+import { useDispatch } from 'react-redux';
+// ActionCreators - объект для диспатча
 import style from './BookForm.module.scss';
 const BookForm = () => {
+  // Состояние названия
   const [title, setTitle] = useState('');
+  // Состояние автора
   const [author, setAuthor] = useState('');
+  // dispatch
+  const dispatch = useDispatch();
+  // Функция при субмите
   const onSubmitHandler = (e) => {
+    // Чтобы не обновлялась страница при субмите
     e.preventDefault();
+    // Вывод состояний в консоль
     console.log(title, author);
+    // При субмите обнуляем инпуты
     setTitle('');
     setAuthor('');
   };
   return (
     <div className={style.bookForm}>
       <h1>Add a new book</h1>
+      {/* Создаём форму с инпутами */}
       <form onSubmit={onSubmitHandler}>
         <div className={style.input}>
           <label htmlFor="title">Title: </label>

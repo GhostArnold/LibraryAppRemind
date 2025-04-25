@@ -12,6 +12,8 @@ function booksReducer(state = initialState, action) {
       // и новый элемент
       return [...state, action.payload];
 
+    case a.DELETE_BOOK:
+      return state.filter((book) => book.id !== action.payload);
     default:
       // По умолчанию просто возвращаем текущее состояние
       return state;

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+// Для уникального id
+import { v4 as uuidv4 } from 'uuid';
 // Для отправки действий
 import { useDispatch } from 'react-redux';
 // ActionCreators - объект для диспатча
@@ -23,6 +25,7 @@ const BookForm = () => {
       const book = {
         title,
         author,
+        id: uuidv4(),
       };
       // Отправляем действия в редьюсер
       dispatch(addBook(book));

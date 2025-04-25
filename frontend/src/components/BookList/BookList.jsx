@@ -14,7 +14,8 @@ const BookList = () => {
           {/* Перебираем массив и выводим */}
           {books.map((book, i) => {
             return (
-              <li key={i}>
+              // Присваиваем id созданный через библиотеку
+              <li key={book.id}>
                 <div>
                   {book.title} by <strong>{book.author}</strong>
                 </div>

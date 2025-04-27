@@ -1,10 +1,24 @@
 import { useSelector, useDispatch } from 'react-redux';
+// Иконка удаления
 import { MdDelete } from 'react-icons/md';
+// удаление
 import { deleteBook } from '../../redux/books/actionCreators';
+// Содержимое title из Filter
+import { selectTitleFilter } from '../../redux/slices/filterSlices';
+
 import style from '../BookList/BookList.module.scss';
 const BookList = () => {
   const books = useSelector((state) => state.books);
+  const titleFilter = useSelector(selectTitleFilter); // Используем селектор
   const dispatch = useDispatch();
+
+  const filteredBooks = books.filter((book) => {
+    const matchesTitle = book.title
+      .toLowerCase()
+      .includes(titleFilter.toLowerCase());
+    return matchesTitle; // Не забываем return!
+  });
+
   return (
     <div className={style.bookList}>
       <h2>Book List</h2>
@@ -15,7 +29,8 @@ const BookList = () => {
         // Если не пустой, то внутри нумуреванного списка выводим элементы
         <ol>
           {/* Перебираем массив и выводим */}
-          {books.map((book, i) => {
+          {filteredBooks.map((book, i) => {
+            // Используем отфильтрованный массив
             return (
               // Присваиваем id созданный через библиотеку
               <li key={book.id} className={style.itemInside}>

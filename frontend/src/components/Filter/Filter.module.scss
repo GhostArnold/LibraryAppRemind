@@ -1,5 +1,10 @@
 .filter {
   background-color: #fff;
-  padding: 40px 200px;
+  padding: 20px 0;
+  width: 420px;
   border-radius: 10px;
+  .filterInput {
+    padding: 4px;
+    width: 70%;
+  }
 }
